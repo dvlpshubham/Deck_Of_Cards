@@ -29,7 +29,6 @@ public class DeckOfCards {
         }
     }
 
-
 public void noOfPlayers() {
     System.out.println("Enter number of Players minimun 2, maximum 4 :");
     Scanner sc = new Scanner(System.in);
@@ -43,11 +42,18 @@ public void noOfPlayers() {
         sc.close();
     }
     }
+    public void sequenceOfPlayer(int player) {
+        System.out.println("Sequence of cards are : ");
+        for (int i = 1; i <= player; i++) {
+            System.out.println("Player " + i + " Getting Card..");
+        }
+    }
 
     public static void main (String[]args){
         DeckOfCards deck1 = new DeckOfCards();
         deck1.deckOfCards();
         deck1.noOfPlayers();
+        deck1.sequenceOfPlayer(4);
 
     }
 }
