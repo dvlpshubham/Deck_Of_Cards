@@ -22,7 +22,7 @@ public class DeckOfCards {
     }
 
 
-    public void toDisplay(ArrayList<String> cardsDeck) {
+    public static void toDisplay(ArrayList<String> cardsDeck) {
         System.out.println("Cards in Deck :");
         for (String element : cardsDeck) {
             System.out.println(element);
@@ -48,12 +48,26 @@ public void noOfPlayers() {
             System.out.println("Player " + i + " Getting Card..");
         }
     }
+    public static void shuffleCard() {
+        System.out.println("shuffling the cards before Distribution");
+        ArrayList<String> temp = new ArrayList<String>();
+        while (!deckofCards.isEmpty()) {
+            int sufCard = (int) (Math.random() * deckofCards.size());
+            temp.add(deckofCards.get(sufCard));
+            deckofCards.remove(sufCard);
+
+        }
+        deckofCards = temp;
+        toDisplay(deckofCards);
+
+    }
 
     public static void main (String[]args){
         DeckOfCards deck1 = new DeckOfCards();
         deck1.deckOfCards();
         deck1.noOfPlayers();
         deck1.sequenceOfPlayer(4);
+        deck1.shuffleCard();
 
     }
 }
