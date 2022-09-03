@@ -29,25 +29,26 @@ public class DeckOfCards {
         }
     }
 
-public void noOfPlayers() {
-    System.out.println("Enter number of Players minimun 2, maximum 4 :");
-    Scanner sc = new Scanner(System.in);
-    int  player = sc.nextInt();
-    if (player >= 2 && player <= 4) {
-        System.out.println(+player + "Player will play the match");
+    public void noOfPlayers() {
+        System.out.println("Enter number of Players minimun 2, maximum 4 :");
+        Scanner sc = new Scanner(System.in);
+        int player = sc.nextInt();
+        if (player >= 2 && player <= 4) {
+            System.out.println(+player + "Player will play the match");
+        } else {
+            System.out.println("Please enter valid number of player within range");
+            this.noOfPlayers();
+            sc.close();
+        }
     }
-        else {
-        System.out.println("Please enter valid number of player within range");
-        this.noOfPlayers();
-        sc.close();
-    }
-    }
+
     public void sequenceOfPlayer(int player) {
         System.out.println("Sequence of cards are : ");
         for (int i = 1; i <= player; i++) {
             System.out.println("Player " + i + " Getting Card..");
         }
     }
+
     public static void shuffleCard() {
         System.out.println("shuffling the cards before Distribution");
         ArrayList<String> temp = new ArrayList<String>();
@@ -62,12 +63,25 @@ public void noOfPlayers() {
 
     }
 
+    public static void cardDistribution() {
+        int player = 0;
+        for (int i = 0; i < player; i++) {
+            System.out.println(" Player " + (i + 1) + " got cards: ");
+            for (int j = 0; j < 9; j++) {
+                System.out.println(deckofCards.get(i + j * player));
+            }
+        }
+        System.out.println();
+    }
+
+
     public static void main (String[]args){
         DeckOfCards deck1 = new DeckOfCards();
         deck1.deckOfCards();
         deck1.noOfPlayers();
         deck1.sequenceOfPlayer(4);
         deck1.shuffleCard();
+        deck1.cardDistribution();
 
     }
 }
